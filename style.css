@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slot {
+    display: flex;
+    width: 80px;
+    height: 65px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 2s;
+    top: 0;
+    position: relative;
+}
+
+.hole {
+    width: 45px;
+    height: 45px;
+    border-radius: 65px;
+    background-color: white;
+}
+
+.slot.player1 .hole {
+    background-image: url("red.png");
+    background-size: cover;
+}
+
+.slot.player2 .hole {
+    background-image: url("yellow.png");
+    background-size: cover;
+}
+
+.soccerField.player1 .slot:not(.player1):not(.player2) .hole:hover {
+    background-image: url("red-preview.png");
+    background-size: cover;
+    opacity: 1;
+}
+
+.soccerField.player2 .slot:not(.player1):not(.player2) .hole:hover {
+    background-image: url("yellow-preview.png");
+    background-size: cover;
+    opacity: 1;
+}
+
+.column {
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.soccerField {
+    background-image: url("soccerfield.jpg");
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.soccerField.won .slot:not(.mark) {
+    opacity: 0;
+}
+
+.slot.mark {
+    animation-duration: 2s;
+    animation-name: rotateBall;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotateBall {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.gameOverMessageRed,
+.gameOverMessageYellow,
+.gameOverMessage {
+    font-size: 80px;
+    font-family: "Open Sans";
+    font-weight: 700;
+    z-index: 1;
+    opacity: 0;
+    transition: 0s;
+    text-align: center;
+    position: absolute;
+    top: 420px;
+    width: 100%;
+}
+
+.gameOverMessageRed.show,
+.gameOverMessageYellow.show,
+.gameOverMessage.show {
+    opacity: 1;
+    transition: 1s;
+    display: block;
+}
+
+.gameOverMessageYellow {
+    background-color: yellow;
+}
+
+.gameOverMessageRed {
+    background-color: red;
+}
+
+.restart {
+    width: 100%;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: -60px;
+}
+
+.restart > span {
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: #5794ff;
+    font-family: "Open Sans";
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+.restart:hover > span {
+    background-color: #7aabff;
+}
