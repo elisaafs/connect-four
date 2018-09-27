@@ -4,4 +4,4 @@
 
 ![alt text](https://github.com/elisaafs/connect-four/blob/master/CF1.jpg "Connect Four")
 ![alt text](https://github.com/elisaafs/connect-four/blob/master/CF2.jpg "Connect Four")
-![alt text](https://github.com/elisaafs/connect-four/blob/master/CF3.jpg "Connect Four")
+
